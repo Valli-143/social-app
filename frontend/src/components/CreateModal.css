@@ -1,0 +1,38 @@
+.create-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.create-box {
+  background: #0e0e0e;
+  padding: 25px;
+  width: 280px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.create-box h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.create-box button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #00d4ff, #7f5cff);
+  color: white;
+}
+
+.create-box .cancel {
+  background: #333;
+}

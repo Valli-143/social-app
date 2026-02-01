@@ -1,0 +1,209 @@
+[
+  {
+    "id": 1768116066524,
+    "username": "vallibaba00",
+    "caption": "",
+    "media": "/uploads/posts/1768116066512-picvalli.jpg",
+    "createdAt": "2026-01-11T07:21:06.524Z",
+    "likes": [
+      "vallibaba00",
+      "testuser"
+    ],
+    "comments": []
+  },
+  {
+    "id": 1767671180292,
+    "username": "testuser",
+    "caption": "",
+    "media": "/uploads/posts/1767671180288-valli.jpg",
+    "createdAt": "2026-01-06T03:46:20.292Z"
+  },
+  {
+    "id": 1767364989339,
+    "username": "vallibaba",
+    "caption": "",
+    "type": "image",
+    "media": "/uploads/posts/1767364989337.jpg",
+    "createdAt": "2026-01-02T14:43:09.339Z"
+  },
+  {
+    "id": 1767359357098,
+    "username": "vallisha",
+    "caption": "Hello",
+    "type": "image",
+    "media": "/uploads/posts/1767359357097-its mee.jpg",
+    "likes": [
+      "testuser",
+      "vallibaba00"
+    ],
+    "comments": [],
+    "createdAt": "2026-01-02T13:09:17.098Z"
+  },
+  {
+    "id": 1767359338084,
+    "username": "vallisha",
+    "caption": "",
+    "type": "image",
+    "media": "/uploads/posts/1767359338082-bob2.jpg",
+    "likes": [
+      "testuser",
+      "vallibaba00"
+    ],
+    "comments": [],
+    "createdAt": "2026-01-02T13:08:58.084Z"
+  },
+  {
+    "id": 1767358781298,
+    "username": "testuser",
+    "caption": "",
+    "type": "image",
+    "media": "/uploads/posts/1767358781281-its mee.jpg",
+    "likes": [
+      "testuser",
+      "vallibaba00"
+    ],
+    "comments": [
+      {
+        "id": 1767974850509,
+        "username": "testuser",
+        "text": "hii"
+      },
+      {
+        "id": 1767974901118,
+        "username": "testuser",
+        "text": "nice"
+      }
+    ],
+    "createdAt": "2026-01-02T12:59:41.298Z"
+  },
+  {
+    "id": 1767333177294,
+    "username": "testuser",
+    "caption": "",
+    "type": "image",
+    "media": "/uploads/posts/1767333177291-its mee.jpg",
+    "likes": [
+      "testuser",
+      "vallibaba00"
+    ],
+    "comments": [
+      {
+        "id": 1768828579403,
+        "username": "vallibaba00",
+        "text": "mm"
+      }
+    ],
+    "createdAt": "2026-01-02T05:52:57.294Z"
+  },
+  {
+    "id": 1767325787578,
+    "username": "testuser",
+    "caption": "",
+    "type": "image",
+    "media": "/uploads/posts/1767325787440-bob.jpg",
+    "likes": [
+      "testuser",
+      "vallibaba00"
+    ],
+    "comments": [],
+    "createdAt": "2026-01-02T03:49:47.578Z"
+  },
+  {
+    "id": 1767291603100,
+    "username": "testuser",
+    "caption": "",
+    "type": "image",
+    "media": "/uploads/posts/1767291603096-bob2.jpg",
+    "likes": [
+      "testuser",
+      "vallibaba00"
+    ],
+    "comments": [],
+    "createdAt": "2026-01-01T18:20:03.100Z"
+  },
+  {
+    "id": 1767289652940,
+    "username": "testuser",
+    "caption": "",
+    "type": "image",
+    "media": "/uploads/posts/1767289652936-its mee.jpg",
+    "likes": [
+      "testuser",
+      "vallibaba00"
+    ],
+    "comments": [],
+    "createdAt": "2026-01-01T17:47:32.940Z"
+  },
+  {
+    "id": "1767271717034",
+    "username": "testuser001",
+    "caption": "",
+    "media": "/uploads/posts/1767271717030-bob.jpg",
+    "createdAt": "2026-01-01T12:48:37.034Z",
+    "likes": [
+      "testuser",
+      "vallibaba00"
+    ],
+    "comments": [
+      {
+        "id": 1768019034690,
+        "username": "testuser",
+        "text": "nice"
+      }
+    ]
+  },
+  {
+    "id": "1767270772292",
+    "username": "polly",
+    "caption": "",
+    "media": "/uploads/posts/1767270772284-its mee.jpg",
+    "createdAt": "2026-01-01T12:32:52.292Z",
+    "likes": [
+      "testuser",
+      "vallibaba00"
+    ],
+    "comments": []
+  },
+  {
+    "id": "1767261453413",
+    "username": "testuser",
+    "caption": "",
+    "media": "/uploads/posts/1767261453408-bob.jpg",
+    "createdAt": "2026-01-01T09:57:33.413Z",
+    "likes": [
+      "testuser",
+      "vallibaba00"
+    ],
+    "comments": []
+  },
+  {
+    "id": "1767261412003",
+    "username": "testuser",
+    "caption": "",
+    "media": "/uploads/posts/1767261411998-vallipic.jpg",
+    "createdAt": "2026-01-01T09:56:52.003Z",
+    "likes": [
+      "testuser",
+      "vallibaba00"
+    ],
+    "comments": []
+  },
+  {
+    "id": "1767258972094",
+    "username": "testuser",
+    "caption": "",
+    "media": "/uploads/posts/1767258972083-valli photo.jpg",
+    "createdAt": "2026-01-01T09:16:12.094Z",
+    "likes": [
+      "testuser",
+      "vallibaba00"
+    ],
+    "comments": [
+      {
+        "id": 1768116271495,
+        "username": "vallibaba00",
+        "text": "valli"
+      }
+    ]
+  }
+]

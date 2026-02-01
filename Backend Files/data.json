@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "testuser",
+      "password": "$2b$10$ZXlCIn/gEOPFQBQsNxK4qutspGaNdtOhkFIGxcW78GhXDrrnsLjD6",
+      "nickname": "VARANASIX User",
+      "bio": "Welcome to VARANASIX 🚀",
+      "avatar": "/uploads/profiles/1767272729783-WhatsApp Image 2025-09-23 at 18.11.06_58462333.jpg",
+      "posts": [],
+      "followers": 0,
+      "following": 0
+    },
+    {
+      "id": "1767273564096",
+      "username": "testuser001",
+      "password": "$2b$10$ENgOKxP8c6ILgdBcUPtufeiRIGhJEin58Cqk0FaOY2wOBz6hhVf6O",
+      "nickname": "testuser001",
+      "bio": "",
+      "avatar": "/uploads/profiles/1767273586314-its mee.jpg",
+      "posts": [],
+      "followers": 0,
+      "following": 0
+    }
+  ]
+}

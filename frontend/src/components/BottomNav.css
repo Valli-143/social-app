@@ -1,0 +1,98 @@
+/* ================= BOTTOM NAVBAR ================= */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 68px;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  z-index: 100;
+}
+
+/* COMMON ICON STYLE */
+.nav-icon {
+  font-size: 22px;
+  color: rgba(255,255,255,0.65);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HOVER */
+.nav-icon:hover {
+  color: #38bdf8;
+  transform: translateY(-2px);
+}
+
+/* ACTIVE (CURRENT PAGE) */
+.nav-icon.active {
+  color: #38bdf8;
+  text-shadow: 0 0 12px rgba(56,189,248,0.8);
+}
+
+/* ================= CENTER ADD BUTTON ================= */
+.nav-add {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top, #38bdf8, #0ea5e9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 28px;
+  box-shadow:
+    0 0 18px rgba(56,189,248,0.9),
+    0 0 36px rgba(56,189,248,0.6);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* ADD BUTTON HOVER */
+.nav-add:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 24px rgba(56,189,248,1),
+    0 0 44px rgba(56,189,248,0.9);
+}
+
+/* ================= ICON CONSISTENCY ================= */
+/* Home */
+.nav-home {
+  font-size: 22px;
+}
+
+/* Reels / Video */
+.nav-reels {
+  font-size: 22px;
+}
+
+/* Chat */
+.nav-chat {
+  font-size: 21px;
+}
+
+/* Profile */
+.nav-profile {
+  font-size: 22px;
+}
+
+/* ================= MOBILE SAFE ================= */
+@media (max-width: 480px) {
+  .bottom-nav {
+    height: 64px;
+  }
+
+  .nav-add {
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+  }
+}

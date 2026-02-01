@@ -1,0 +1,26 @@
+.editor {
+  max-width: 420px;
+  margin: auto;
+  color: white;
+}
+
+.editor img, .editor video {
+  width: 100%;
+  border-radius: 14px;
+}
+
+.editor textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.editor button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  background: linear-gradient(135deg,#ff512f,#dd2476);
+  color: white;
+  border-radius: 12px;
+}

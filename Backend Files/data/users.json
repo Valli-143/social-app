@@ -1,0 +1,121 @@
+[
+  {
+    "id": 1767289303384,
+    "username": "testuser",
+    "password": "$2b$10$yumkaGFMLnzeH4ziVBF6bubDrD/eYs3bgcx1xpKanEJFlOrwmky4u",
+    "nickname": "Varanasix app CEO",
+    "bio": "Welcome to VARANASIX 🚀 hii\r\nhello",
+    "avatar": "/uploads/profiles/1767671195854-valli.jpg",
+    "followers": [
+      "vallisha",
+      "vallibaba",
+      "sivudu",
+      "vicky",
+      "vallibaba00"
+    ],
+    "following": [
+      "vallisha",
+      "vallibaba"
+    ]
+  },
+  {
+    "id": 1767359313317,
+    "username": "vallisha",
+    "password": "$2b$10$iwlMeiMRQoCyb3AaUf1g5OG6dJpw2QgrryUZjkwkLMVmZelda7Jki",
+    "nickname": "vallisha",
+    "bio": "",
+    "avatar": "/uploads/profiles/1767365058733.jpg",
+    "followers": [
+      "vallibaba",
+      "sivudu",
+      "vicky",
+      "testuser",
+      "vallibaba00"
+    ],
+    "following": [
+      "testuser",
+      "vallibaba"
+    ]
+  },
+  {
+    "id": 1767363906590,
+    "username": "vallibaba",
+    "password": "$2b$10$o65VElimPDG08tYMDhpWKeUZme1kxQZI3kozK9CKvk7aTJ7kvY7k6",
+    "nickname": "vallibaba",
+    "bio": "Welcome to VARANASIX 🚀",
+    "avatar": "/uploads/profiles/1767427130166-its mee.jpg",
+    "followers": [
+      "vallisha",
+      "sivudu",
+      "vicky",
+      "testuser",
+      "vallibaba00"
+    ],
+    "following": [
+      "testuser",
+      "vallisha"
+    ]
+  },
+  {
+    "id": 1767545180916,
+    "username": "sivudu",
+    "password": "$2b$10$lg2yFRyAXhi71g7U6s.i4eVeOev27nSwNo8uZqeu.6bJ1v0PHj9eK",
+    "email": "",
+    "gender": "Male",
+    "emailVerified": false,
+    "nickname": "sivudu",
+    "bio": "",
+    "avatar": "/uploads/profiles/1767545209772-bob.jpg",
+    "followers": [],
+    "following": [
+      "vallibaba",
+      "vallisha",
+      "testuser"
+    ]
+  },
+  {
+    "id": 1767547244729,
+    "username": "vicky",
+    "password": "$2b$10$kP21g7Mr0AajlL/QfJcMf.77KlQg1Do8bb17pXmUAP4.A9yeLCcR6",
+    "email": "vallibabag491@gmail.com",
+    "gender": "male",
+    "emailVerified": false,
+    "nickname": "vicky",
+    "bio": "",
+    "avatar": "/uploads/profiles/1767547275420-bob2.jpg",
+    "followers": [],
+    "following": [
+      "vallibaba",
+      "vallisha",
+      "testuser"
+    ]
+  },
+  {
+    "id": 1767601278534,
+    "username": "vallibaba00",
+    "password": "$2b$10$FglmlcOg224Y2HNGvYLIGeh7NWVz7r07G1/LFornn.DgMtZJA90iW",
+    "email": "vallibabag491@gmail.com",
+    "gender": "male",
+    "nickname": "vallibaba00",
+    "bio": "",
+    "avatar": "/uploads/profiles/1767775505490-realpic.jpeg",
+    "followers": [],
+    "following": [
+      "testuser",
+      "vallibaba",
+      "vallisha"
+    ]
+  },
+  {
+    "id": 1767601996773,
+    "username": "karthik",
+    "password": "$2b$10$OxtfS41pvuBzzQBiZkfiXuQtjGq8DMSr/vueWmx7oS34.JM.O0X..",
+    "email": "karthikkuthuru065@gmail.com",
+    "gender": "male",
+    "nickname": "karthik",
+    "bio": "",
+    "avatar": "",
+    "followers": [],
+    "following": []
+  }
+]

@@ -1,0 +1,68 @@
+.register-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0b3a46, #02141a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.brand {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.register-box {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.register-box input,
+.register-box select {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.register-box button {
+  padding: 10px;
+  border-radius: 8px;
+  background: #00c6ff;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 12px;
+}
+
+.success {
+  color: #00ff99;
+  font-size: 12px;
+}
+
+.link-text {
+  font-size: 14px;
+  text-align: center;
+}
+.suggestions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.suggestions span {
+  background: #0ff;
+  color: black;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}

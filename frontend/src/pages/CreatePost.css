@@ -1,0 +1,27 @@
+.create-post {
+  padding: 20px;
+  color: white;
+}
+
+.create-post form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.create-post input,
+.create-post textarea,
+.create-post select {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.create-post button {
+  background: #4f46e5;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}

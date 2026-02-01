@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "testuser",
+      "password": "$2b$10$qoNhUReA80XTAUfRTJHq4.BlWaxFef5TvsiaTXtU65D1BXIg05CFS",
+      "nickname": "VARANASIX User",
+      "bio": "Welcome to VARANASIX 🚀",
+      "avatar": "/uploads/profiles/1767273849013-WhatsApp Image 2025-09-23 at 18.11.06_58462333.jpg",
+      "followers": 0,
+      "following": 0
+    },
+    {
+      "id": "1767273920796",
+      "username": "testuser001",
+      "password": "$2b$10$vEz3z2vmR4rrkf9cLe4cGu6tAHM7M4no0Py9McsxnqcB8gvOEYfOi",
+      "nickname": "testuser001",
+      "bio": "",
+      "avatar": "/uploads/profiles/1767273935732-WhatsApp Image 2025-09-23 at 18.11.06_58462333.jpg",
+      "followers": 0,
+      "following": 0
+    }
+  ],
+  "posts": [
+    {
+      "id": "1767273949919",
+      "username": "testuser001",
+      "caption": "hello",
+      "media": "/uploads/posts/1767273949917-its mee.jpg",
+      "createdAt": "2026-01-01T13:25:49.920Z",
+      "likes": 0,
+      "comments": []
+    },
+    {
+      "id": "1767273882413",
+      "username": "testuser",
+      "caption": "",
+      "media": "/uploads/posts/1767273882410-bob2.jpg",
+      "createdAt": "2026-01-01T13:24:42.413Z",
+      "likes": 0,
+      "comments": []
+    }
+  ]
+}
