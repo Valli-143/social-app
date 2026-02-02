@@ -12,9 +12,18 @@ const { Server } = require("socket.io");
 const app = express();
 const server = http.createServer(app);
 
+// ================= PORT (RENDER SAFE) =================
+const PORT = process.env.PORT || 4000;
+
 // ================= SOCKET.IO =================
 const io = new Server(server, {
-  cors: { origin: "http://localhost:5173", methods: ["GET", "POST"] },
+  cors: {
+    origin: [
+      "http://localhost:5173",
+      "https://social-app-backend-b6dw.onrender.com",
+    ],
+    methods: ["GET", "POST"],
+  },
 });
 
 // ================= MIDDLEWARE =================
@@ -35,8 +44,8 @@ const JWT_SECRET = "varanasix_secret";
 // ================= INIT =================
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR);
 if (!fs.existsSync("./uploads")) fs.mkdirSync("./uploads");
-if (!fs.existsSync(PROFILE_DIR)) fs.mkdirSync(PROFILE_DIR);
-if (!fs.existsSync(POSTS_DIR)) fs.mkdirSync(POSTS_DIR);
+if (!fs.existsSync(PROFILE_DIR)) fs.mkdirSync(PROFILE_DIR, { recursive: true });
+if (!fs.existsSync(POSTS_DIR)) fs.mkdirSync(POSTS_DIR, { recursive: true });
 
 for (const f of [USERS_FILE, POSTS_FILE, NOTIFY_FILE, MESSAGES_FILE]) {
   if (!fs.existsSync(f)) fs.writeFileSync(f, "[]");
@@ -238,7 +247,7 @@ app.post("/api/posts/:id/comment", (req, res) => {
   res.json(post);
 });
 
-// ================= FOLLOW / UNFOLLOW =================
+// ================= FOLLOW =================
 app.post("/api/follow", (req, res) => {
   const { from, to } = req.body;
   const users = read(USERS_FILE);
@@ -269,7 +278,7 @@ app.post("/api/unfollow", (req, res) => {
   res.json({ message: "Unfollowed" });
 });
 
-// ================= RANDOM GENDER CHAT =================
+// ================= RANDOM CHAT =================
 app.get("/api/random-chat/:username", (req, res) => {
   const users = read(USERS_FILE);
   const me = users.find(u => u.username === req.params.username);
@@ -283,8 +292,7 @@ app.get("/api/random-chat/:username", (req, res) => {
   if (!list.length)
     return res.status(404).json({ message: "No users available" });
 
-  const randomUser = list[Math.floor(Math.random() * list.length)];
-  res.json({ username: randomUser.username });
+  res.json({ username: list[Math.floor(Math.random() * list.length)].username });
 });
 
 // ================= NOTIFICATIONS =================
@@ -293,7 +301,7 @@ app.get("/api/notifications/:username", (req, res) => {
   res.json(all.filter(n => n.to === req.params.username));
 });
 
-// ================= START =================
-server.listen(4000, () =>
-  console.log("🚀 VARANASIX backend running on http://localhost:4000")
-);
+// ================= START SERVER =================
+server.listen(PORT, () => {
+  console.log(`🚀 VARANASIX backend running on port ${PORT}`);
+});
