@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { FiSearch, FiShuffle } from "react-icons/fi";
-import { io } from "socket.io-client";
+import { socket } from "../api/socket";
 import "./Messages.css";
 
-const API = "http://localhost:4000";
-const SOCKET_URL = "http://localhost:4000";
+/* ✅ Render Backend */
+const API = "https://social-app-backend-b6dw.onrender.com";
 
 export default function Messages() {
   const stored = JSON.parse(localStorage.getItem("user"));
-  const [socket, setSocket] = useState(null);
 
   const [search, setSearch] = useState("");
   const [users, setUsers] = useState([]);
@@ -17,22 +16,27 @@ export default function Messages() {
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
 
-  // ================= SOCKET =================
+  /* ================= SOCKET ================= */
   useEffect(() => {
-    const s = io(SOCKET_URL);
-    s.emit("join", stored.username);
+    if (!stored?.username) return;
 
-    s.on("newMessage", msg => {
-      if (msg.from === selectedUser || msg.to === selectedUser) {
+    socket.emit("join", stored.username);
+
+    socket.on("newMessage", msg => {
+      if (
+        msg.from === selectedUser ||
+        msg.to === selectedUser
+      ) {
         setMessages(prev => [...prev, msg]);
       }
     });
 
-    setSocket(s);
-    return () => s.disconnect();
-  }, [selectedUser]);
+    return () => {
+      socket.off("newMessage");
+    };
+  }, [selectedUser, stored?.username]);
 
-  // ================= SEARCH =================
+  /* ================= SEARCH ================= */
   useEffect(() => {
     if (!search) return setUsers([]);
 
@@ -41,9 +45,9 @@ export default function Messages() {
       .then(data => setUsers(data ? [data] : []));
   }, [search]);
 
-  // ================= SEND =================
+  /* ================= SEND MESSAGE ================= */
   function sendMessage() {
-    if (!text || !selectedUser) return;
+    if (!text.trim() || !selectedUser) return;
 
     socket.emit("sendMessage", {
       from: stored.username,
@@ -51,10 +55,16 @@ export default function Messages() {
       text,
     });
 
+    // instant UI update
+    setMessages(prev => [
+      ...prev,
+      { from: stored.username, to: selectedUser, text }
+    ]);
+
     setText("");
   }
 
-  // ================= RANDOM CONNECT =================
+  /* ================= RANDOM CONNECT ================= */
   async function randomConnect() {
     const res = await fetch(`${API}/api/random-chat/${stored.username}`);
     if (!res.ok) return alert("No opposite gender users");
@@ -107,7 +117,11 @@ export default function Messages() {
               {messages.map((m, i) => (
                 <div
                   key={i}
-                  className={m.from === stored.username ? "dm-msg me" : "dm-msg"}
+                  className={
+                    m.from === stored.username
+                      ? "dm-msg me"
+                      : "dm-msg"
+                  }
                 >
                   {m.text}
                 </div>

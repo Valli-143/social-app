@@ -1,11 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiSearch, FiBell, FiShare2, FiCopy } from "react-icons/fi";
-import { io } from "socket.io-client";
+import { socket } from "../api/socket";
 import "./Home.css";
 
-const API = "http://localhost:4000";
-const SOCKET_URL = "http://localhost:4000";
+/* ✅ Render Backend API */
+const API = "https://social-app-backend-b6dw.onrender.com";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -26,16 +26,19 @@ export default function Home() {
   const lastTap = useRef(0);
   const [heartPost, setHeartPost] = useState(null);
 
-  // 🔗 SHARE STATE (FIXED)
+  // 🔗 SHARE STATE
   const [sharePostId, setSharePostId] = useState(null);
 
   /* ================= SOCKET ================= */
   useEffect(() => {
     if (!stored?.username) return;
-    const socket = io(SOCKET_URL);
+
     socket.emit("join", stored.username);
     socket.on("notification", () => setHasNewNotify(true));
-    return () => socket.disconnect();
+
+    return () => {
+      socket.off("notification");
+    };
   }, [stored?.username]);
 
   /* ================= LOAD POSTS ================= */
@@ -48,6 +51,7 @@ export default function Home() {
   /* ================= SEARCH ================= */
   useEffect(() => {
     if (!search) return setResults([]);
+
     fetch(`${API}/api/profile/${search}`)
       .then(res => (res.ok ? res.json() : null))
       .then(data => setResults(data ? [data] : []));
@@ -60,6 +64,7 @@ export default function Home() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username: stored.username }),
     });
+
     const updatedPost = await res.json();
     setPosts(p => p.map(x => (x.id === postId ? updatedPost : x)));
   }
@@ -180,12 +185,7 @@ export default function Home() {
                   💬 {p.comments?.length || 0}
                 </span>
 
-                {/* ✅ FIXED SHARE CLICK */}
-                <span
-                  role="button"
-                  style={{ cursor: "pointer" }}
-                  onClick={() => setSharePostId(p.id)}
-                >
+                <span style={{ cursor: "pointer" }} onClick={() => setSharePostId(p.id)}>
                   <FiShare2 /> Share
                 </span>
               </div>
@@ -215,7 +215,7 @@ export default function Home() {
         })}
       </div>
 
-      {/* 🔗 SHARE MODAL (FIXED) */}
+      {/* SHARE MODAL */}
       {sharePostId && (
         <div className="share-overlay" onClick={() => setSharePostId(null)}>
           <div className="share-modal" onClick={e => e.stopPropagation()}>

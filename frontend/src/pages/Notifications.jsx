@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiArrowLeft, FiUserPlus, FiMessageCircle } from "react-icons/fi";
-import { io } from "socket.io-client";
+import { socket } from "../api/socket";
 import "./Notifications.css";
 
-const API = "http://localhost:4000";
-const SOCKET_URL = "http://localhost:4000";
+/* ✅ Render Backend */
+const API = "https://social-app-backend-b6dw.onrender.com";
 
 /* ================= TIME FORMAT ================= */
 function timeAgo(date) {
@@ -35,7 +35,7 @@ export default function Notifications() {
         if (Array.isArray(data) && data.length > 0) {
           setNotifications(data);
         } else {
-          // ✅ Demo fallback (kept, not removed)
+          // ✅ Demo fallback (kept exactly as you had)
           setNotifications([
             {
               id: 1,
@@ -64,8 +64,6 @@ export default function Notifications() {
   useEffect(() => {
     if (!stored?.username) return;
 
-    const socket = io(SOCKET_URL);
-
     socket.emit("join", stored.username);
 
     socket.on("notification", data => {
@@ -80,7 +78,9 @@ export default function Notifications() {
       ]);
     });
 
-    return () => socket.disconnect();
+    return () => {
+      socket.off("notification");
+    };
   }, [stored?.username]);
 
   /* ================= CLICK HANDLER ================= */
@@ -88,7 +88,7 @@ export default function Notifications() {
     if (n.type === "follow") {
       navigate(`/profile/${n.from}`);
     } else if (n.type === "comment") {
-      navigate("/home"); // can later route to post
+      navigate("/home"); // later you can route to post
     }
   }
 
