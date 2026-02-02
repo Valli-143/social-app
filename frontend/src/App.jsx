@@ -11,12 +11,15 @@ import Notifications from "./pages/Notifications";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 import BottomNav from "./components/BottomNav";
+import InstallPrompt from "./components/InstallPrompt";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      {/* ✅ PWA INSTALL PROMPT (does NOT affect routes) */}
+      <InstallPrompt />
 
+      <Routes>
         {/* ================= DEFAULT ================= */}
         <Route path="/" element={<Navigate to="/login" />} />
 
@@ -36,7 +39,6 @@ export default function App() {
         />
 
         {/* ================= PROFILE ================= */}
-        {/* Own Profile */}
         <Route
           path="/profile"
           element={
@@ -47,7 +49,6 @@ export default function App() {
           }
         />
 
-        {/* Other User Profile */}
         <Route
           path="/profile/:username"
           element={
@@ -101,7 +102,6 @@ export default function App() {
             </ProtectedRoute>
           }
         />
-
       </Routes>
     </BrowserRouter>
   );
