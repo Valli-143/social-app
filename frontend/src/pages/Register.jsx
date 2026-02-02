@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./Register.css";
 
-const API = "http://localhost:4000";
+/* ✅ Render Backend API */
+const API = "https://social-app-backend-b6dw.onrender.com";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -139,7 +140,7 @@ export default function Register() {
       return;
     }
 
-    alert(`🎉 Account created\nUsername: ${data.username}`);
+    alert("🎉 Account created successfully");
     navigate("/login");
   }
 
@@ -233,7 +234,11 @@ export default function Register() {
         {otpVerified && <p className="success">✔ Email verified</p>}
 
         {/* GENDER */}
-        <select value={gender} onChange={e => setGender(e.target.value)} required>
+        <select
+          value={gender}
+          onChange={e => setGender(e.target.value)}
+          required
+        >
           <option value="">Select Gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>

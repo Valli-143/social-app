@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+/* ✅ Render Backend */
+const API = "https://social-app-backend-b6dw.onrender.com";
+
 export default function Posts() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [file, setFile] = useState(null);
@@ -22,9 +25,9 @@ export default function Posts() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:4000/api/posts", {
+      const res = await fetch(`${API}/api/posts`, {
         method: "POST",
-        body: formData
+        body: formData,
       });
 
       if (!res.ok) {
@@ -32,7 +35,7 @@ export default function Posts() {
         throw new Error(text);
       }
 
-      const data = await res.json();
+      await res.json();
       alert("Posted successfully ✅");
 
       setCaption("");

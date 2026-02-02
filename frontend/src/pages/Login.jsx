@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
 
+/* ✅ Render Backend */
+const API = "https://social-app-backend-b6dw.onrender.com";
+
 export default function Login() {
   const [identifier, setIdentifier] = useState(""); // username or email
   const [password, setPassword] = useState("");
@@ -13,7 +16,7 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:4000/api/auth/login", {
+      const res = await fetch(`${API}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

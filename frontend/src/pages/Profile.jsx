@@ -3,7 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { FiEdit } from "react-icons/fi";
 import "./Profile.css";
 
-const API = "http://localhost:4000";
+/* ✅ Render Backend URL */
+const API = "https://social-app-backend-b6dw.onrender.com";
 
 export default function Profile() {
   const { username } = useParams();
@@ -160,7 +161,7 @@ export default function Profile() {
       {/* ================= STATS ================= */}
       <div className="profile-stats">
         <div>
-          <b>{profile.postsCount}</b>
+          <b>{profile.posts?.length || 0}</b>
           <span>Posts</span>
         </div>
         <div>
@@ -208,7 +209,7 @@ export default function Profile() {
       {/* ================= POSTS ================= */}
       <h3 className="profile-section">Posts</h3>
       <div className="profile-posts">
-        {profile.posts.map(p => (
+        {profile.posts?.map(p => (
           <img key={p.id} src={`${API}${p.media}`} alt="" />
         ))}
       </div>

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./CreatePost.css";
 
+/* ✅ Render Backend */
+const API = "https://social-app-backend-b6dw.onrender.com";
+
 export default function CreatePost() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [file, setFile] = useState(null);
@@ -20,7 +23,7 @@ export default function CreatePost() {
     formData.append("type", file.type.startsWith("video") ? "video" : "image");
     formData.append("username", user.username);
 
-    const res = await fetch("http://localhost:4000/api/posts/create", {
+    const res = await fetch(`${API}/api/posts/create`, {
       method: "POST",
       body: formData,
     });
