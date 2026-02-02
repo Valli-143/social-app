@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { FiSearch, FiBell, FiShare2, FiCopy } from "react-icons/fi";
+import { FiSearch, FiBell, FiShare2, FiCopy, FiDownload } from "react-icons/fi";
 import { socket } from "../api/socket";
 import "./Home.css";
 
@@ -28,6 +28,26 @@ export default function Home() {
 
   // 🔗 SHARE STATE
   const [sharePostId, setSharePostId] = useState(null);
+
+  // 📲 PWA INSTALL
+  const [installPrompt, setInstallPrompt] = useState(null);
+
+  /* ================= PWA INSTALL ================= */
+  useEffect(() => {
+    const handler = (e) => {
+      e.preventDefault();
+      setInstallPrompt(e);
+    };
+
+    window.addEventListener("beforeinstallprompt", handler);
+    return () => window.removeEventListener("beforeinstallprompt", handler);
+  }, []);
+
+  function installApp() {
+    if (!installPrompt) return;
+    installPrompt.prompt();
+    installPrompt.userChoice.finally(() => setInstallPrompt(null));
+  }
 
   /* ================= SOCKET ================= */
   useEffect(() => {
@@ -134,7 +154,19 @@ export default function Home() {
         </div>
 
         <div className="header-icons">
-          <FiSearch className="header-icon" onClick={() => setShowSearch(!showSearch)} />
+          {installPrompt && (
+            <FiDownload
+              className="header-icon"
+              title="Install App"
+              onClick={installApp}
+            />
+          )}
+
+          <FiSearch
+            className="header-icon"
+            onClick={() => setShowSearch(!showSearch)}
+          />
+
           <div className="notify-wrapper">
             <FiBell
               className="header-icon"
@@ -162,12 +194,6 @@ export default function Home() {
               <div
                 className="post-media heart-wrapper"
                 onClick={() => handleDoubleTap(p.id, liked)}
-                onDoubleClick={() => {
-                  if (!liked) {
-                    showHeart(p.id);
-                    toggleLike(p.id);
-                  }
-                }}
               >
                 <img src={`${API}${p.media}`} alt="" />
                 {heartPost === p.id && <div className="big-heart">❤️</div>}
@@ -175,7 +201,6 @@ export default function Home() {
 
               {p.caption && <p className="post-caption">{p.caption}</p>}
 
-              {/* ACTIONS */}
               <div className="post-actions">
                 <span onClick={() => toggleLike(p.id)}>
                   {liked ? "❤️" : "🤍"} {p.likes?.length || 0}
@@ -185,12 +210,11 @@ export default function Home() {
                   💬 {p.comments?.length || 0}
                 </span>
 
-                <span style={{ cursor: "pointer" }} onClick={() => setSharePostId(p.id)}>
+                <span onClick={() => setSharePostId(p.id)}>
                   <FiShare2 /> Share
                 </span>
               </div>
 
-              {/* COMMENTS */}
               {openComments === p.id && (
                 <div className="comment-box">
                   {p.comments?.map(c => (
