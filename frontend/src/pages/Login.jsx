@@ -20,7 +20,7 @@ export default function Login() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          identifier, // ✅ username OR email
+          identifier,
           password,
         }),
       });
@@ -33,7 +33,6 @@ export default function Login() {
         return;
       }
 
-      // ✅ STORE SESSION
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
@@ -72,10 +71,6 @@ export default function Login() {
 
         <p className="link-text">
           Don’t have an account? <Link to="/register">Sign up</Link>
-        </p>
-
-        <p className="link-text">
-          🔐 Test user → <b>testuser / testuser123</b>
         </p>
       </form>
     </div>
