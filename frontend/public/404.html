@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>VARANASIX</title>
+    <script>
+      // GitHub Pages SPA redirect
+      var path = window.location.pathname;
+      var base = "/social-app";
+      if (!path.startsWith(base)) {
+        window.location.replace(base);
+      } else {
+        window.location.replace(base + "/");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
