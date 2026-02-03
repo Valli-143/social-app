@@ -15,19 +15,19 @@ import InstallPrompt from "./components/InstallPrompt";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      {/* ✅ PWA INSTALL PROMPT (does NOT affect routes) */}
+    <BrowserRouter basename="/social-app">
+      {/* PWA install prompt */}
       <InstallPrompt />
 
       <Routes>
-        {/* ================= DEFAULT ================= */}
+        {/* DEFAULT */}
         <Route path="/" element={<Navigate to="/login" />} />
 
-        {/* ================= AUTH ================= */}
+        {/* AUTH */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* ================= HOME ================= */}
+        {/* HOME */}
         <Route
           path="/home"
           element={
@@ -38,7 +38,7 @@ export default function App() {
           }
         />
 
-        {/* ================= PROFILE ================= */}
+        {/* PROFILE */}
         <Route
           path="/profile"
           element={
@@ -48,7 +48,6 @@ export default function App() {
             </ProtectedRoute>
           }
         />
-
         <Route
           path="/profile/:username"
           element={
@@ -59,7 +58,7 @@ export default function App() {
           }
         />
 
-        {/* ================= POSTS ================= */}
+        {/* POSTS */}
         <Route
           path="/posts"
           element={
@@ -70,7 +69,7 @@ export default function App() {
           }
         />
 
-        {/* ================= REELS ================= */}
+        {/* REELS */}
         <Route
           path="/reels"
           element={
@@ -81,7 +80,7 @@ export default function App() {
           }
         />
 
-        {/* ================= MESSAGES ================= */}
+        {/* MESSAGES */}
         <Route
           path="/messages"
           element={
@@ -92,7 +91,7 @@ export default function App() {
           }
         />
 
-        {/* ================= NOTIFICATIONS ================= */}
+        {/* NOTIFICATIONS */}
         <Route
           path="/notifications"
           element={
