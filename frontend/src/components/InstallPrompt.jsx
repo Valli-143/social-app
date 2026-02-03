@@ -6,6 +6,20 @@ export default function InstallPrompt() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    // ✅ If user already made a choice, don't show again
+    const choiceDone = localStorage.getItem("app_choice_done");
+    if (choiceDone) return;
+
+    // ✅ If app already installed (PWA), don't show
+    const isStandalone =
+      window.matchMedia("(display-mode: standalone)").matches ||
+      window.navigator.standalone === true;
+
+    if (isStandalone) {
+      localStorage.setItem("app_choice_done", "yes");
+      return;
+    }
+
     const handler = (e) => {
       e.preventDefault();
       setDeferredPrompt(e);
@@ -13,25 +27,27 @@ export default function InstallPrompt() {
     };
 
     window.addEventListener("beforeinstallprompt", handler);
+
     return () => window.removeEventListener("beforeinstallprompt", handler);
   }, []);
 
-  function installApp() {
+  async function installApp() {
     if (!deferredPrompt) return;
 
     deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(() => {
-      setShow(false);
-      setDeferredPrompt(null);
-    });
+    await deferredPrompt.userChoice;
+
+    localStorage.setItem("app_choice_done", "yes");
+    setShow(false);
+    setDeferredPrompt(null);
   }
 
   function continueWeb() {
+    localStorage.setItem("app_choice_done", "yes");
     setShow(false);
-    localStorage.setItem("continue_web", "true");
   }
 
-  if (!show || localStorage.getItem("continue_web")) return null;
+  if (!show) return null;
 
   return (
     <div className="install-overlay">
