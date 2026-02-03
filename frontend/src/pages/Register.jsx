@@ -10,7 +10,7 @@ export default function Register() {
 
   const [username, setUsername] = useState("");
   const [usernameStatus, setUsernameStatus] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
+  const [suggestions, setSuggestions] = useState([]); // ✅ FIX (MISSING STATE)
 
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
@@ -25,12 +25,12 @@ export default function Register() {
 
   const [loading, setLoading] = useState(false);
 
-  /* PASSWORD MATCH */
+  /* ================= PASSWORD MATCH ================= */
   useEffect(() => {
     setMatch(password && rePassword && password === rePassword);
   }, [password, rePassword]);
 
-  /* USERNAME CHECK */
+  /* ================= USERNAME CHECK ================= */
   useEffect(() => {
     if (!username) {
       setUsernameStatus("");
@@ -54,7 +54,7 @@ export default function Register() {
       });
   }, [username]);
 
-  /* AUTO USERNAME SUGGESTIONS */
+  /* ================= USERNAME SUGGESTIONS ================= */
   function generateSuggestions(base) {
     setSuggestions([
       `${base}_${Math.floor(Math.random() * 100)}`,
@@ -63,7 +63,7 @@ export default function Register() {
     ]);
   }
 
-  /* SEND OTP */
+  /* ================= SEND OTP ================= */
   async function sendOtp() {
     if (!email) return alert("Enter email first");
 
@@ -80,7 +80,7 @@ export default function Register() {
     setOtpSent(true);
   }
 
-  /* VERIFY OTP */
+  /* ================= VERIFY OTP ================= */
   async function verifyOtp() {
     const res = await fetch(`${API}/api/auth/verify-otp`, {
       method: "POST",
@@ -95,7 +95,7 @@ export default function Register() {
     setOtpVerified(true);
   }
 
-  /* REGISTER */
+  /* ================= REGISTER ================= */
   async function handleRegister(e) {
     e.preventDefault();
 
@@ -234,11 +234,7 @@ export default function Register() {
         {otpVerified && <p className="success">✔ Email verified</p>}
 
         {/* GENDER */}
-        <select
-          value={gender}
-          onChange={e => setGender(e.target.value)}
-          required
-        >
+        <select value={gender} onChange={e => setGender(e.target.value)} required>
           <option value="">Select Gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
